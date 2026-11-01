@@ -1,0 +1,29 @@
+html
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barra de navegação</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; margin: 0; background: #f3f4f6; }
+  nav { display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 24px; background: #111827; color: #fff; }
+  .links { display: flex; gap: 24px; }
+  a { color: #fff; text-decoration: none; }
+  button { padding: 8px 16px; border: 0; border-radius: 8px; background: #6366f1; color: #fff; }
+</style>
+</head>
+<body>
+  <nav>
+    <div>◆ Logo</div>
+    <div class="links">
+      <a href="#">Início</a>
+      <a href="#">Cursos</a>
+      <a href="#">Contactos</a>
+    </div>
+    <button>Entrar</button>
+  </nav>
+</body>
+</html>

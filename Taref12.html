@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel com tema por variáveis</title>
+<style>
+  * { box-sizing: border-box; }
+
+  /* ===== OS 3 VALORES GLOBAIS: é só aqui que se muda o tema ===== */
+  :root {
+    --cor: #6366f1;
+    --raio: 12px;
+    --espaco: 16px;
+
+    /* Medidas calculadas a partir dos valores partilhados */
+    --raio-pequeno: calc(var(--raio) / 2);
+    --raio-grande: calc(var(--raio) * 2);
+    --espaco-pequeno: calc(var(--espaco) / 2);
+    --espaco-grande: calc(var(--espaco) * 2);
+    --cor-suave: color-mix(in srgb, var(--cor) 14%, white);
+  }
+
+  /* Outros temas: mudam apenas os três valores */
+  :root[data-tema="verde"] { --cor: #16a34a; --raio: 4px;  --espaco: 12px; }
+  :root[data-tema="rosa"]  { --cor: #db2777; --raio: 28px; --espaco: 22px; }
+
+  body { font-family: system-ui, sans-serif; margin: 0; padding: var(--espaco);
+    background: var(--cor-suave); color: #1f2937; }
+
+  /* Tamanhos adaptáveis, com mínimo e máximo */
+  .painel { width: min(100%, 720px); margin: auto;
+    padding: clamp(var(--espaco), 4vw, var(--espaco-grande));
+    background: #fff; border: 2px solid var(--cor); border-radius: var(--raio-grande);
+    display: flex; flex-direction: column; gap: var(--espaco); }
+
+  .topo { display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: var(--espaco-pequeno); }
+  h1 { margin: 0; color: var(--cor); font-size: clamp(1.3rem, 4vw, 2rem); }
+  .etiqueta { background: var(--cor-suave); color: var(--cor); font-size: .75rem;
+    padding: calc(var(--espaco-pequeno) / 2) var(--espaco-pequeno);
+    border-radius: var(--raio-pequeno); font-family: ui-monospace, monospace; }
+
+  .numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--espaco); }
+  .numero { background: var(--cor-suave); padding: var(--espaco);
+    border-radius: var(--raio); border-left: 4px solid var(--cor); }
+  .numero b { display: block; font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--cor); }
+
+  .formulario { display: flex; flex-wrap: wrap; gap: var(--espaco-pequeno); }
+  input { flex: 1 1 200px; padding: var(--espaco); border: 2px solid var(--cor-suave);
+    border-radius: var(--raio); font: inherit; }
+  input:focus { outline: none; border-color: var(--cor); }
+
+  button { padding: var(--espaco); border: 2px solid var(--cor); border-radius: var(--raio);
+    background: var(--cor); color: #fff; font: inherit; cursor: pointer; }
+  button.contorno { background: transparent; color: var(--cor); }
+  button small { display: block; font-size: .7rem; opacity: .85; }
+
+  .temas { display: flex; flex-wrap: wrap; gap: var(--espaco-pequeno); align-items: center; }
+  .temas span { font-size: .85rem; color: #6b7280; }
+</style>
+</head>
+<body>
+  <div class="painel">
+
+    <div class="topo">
+      <h1>Painel de controlo</h1>
+      <span class="etiqueta">--cor / --raio / --espaco</span>
+    </div>
+
+    <div class="numeros">
+      <div class="numero"><b>1 240</b>visitas</div>
+      <div class="numero"><b>86</b>mensagens</div>
+      <div class="numero"><b>12</b>projetos</div>
+    </div>
+
+    <div class="formulario">
+      <input type="text" placeholder="Escreve aqui...">
+      <button>Botão <small>--cor / --raio</small></button>
+      <button class="contorno">Botão <small>--cor / --raio</small></button>
+    </div>
+
+    <div class="temas">
+      <span>Mudar os 3 valores:</span>
+      <button class="contorno" data-tema="roxo">Roxo</button>
+      <button class="contorno" data-tema="verde">Verde</button>
+      <button class="contorno" data-tema="rosa">Rosa</button>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll("[data-tema]").forEach(function (botao) {
+      botao.addEventListener("click", function () {
+        document.documentElement.dataset.tema = botao.dataset.tema;
+      });
+    });
+  </script>
+</body>
+</html>

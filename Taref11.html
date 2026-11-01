@@ -1,0 +1,48 @@
+html
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animações de carregamento</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; margin: 0; background: #0b1230;
+    display: flex; gap: 48px; align-items: center; justify-content: center; min-height: 100vh; }
+
+  /* Spinner */
+  .spinner { width: 48px; height: 48px; border: 5px solid #2a3560;
+    border-top-color: #a3e635; border-radius: 50%; animation: rodar 1s linear infinite; }
+  @keyframes rodar { to { transform: rotate(360deg); } }
+
+  /* Esqueleto com brilho */
+  .esqueleto { width: 200px; padding: 12px; border-radius: 12px; background: #0f1838;
+    display: flex; flex-direction: column; gap: 8px; }
+  .esqueleto div { height: 14px; border-radius: 6px; background-size: 200% 100%;
+    background-image: linear-gradient(90deg, #1e2a5a 25%, #3a4a80 50%, #1e2a5a 75%);
+    animation: brilho 1.5s ease-in-out infinite; }
+  .esqueleto .img { height: 80px; }
+  @keyframes brilho {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Bolinha a pulsar */
+  .bolinha { width: 20px; height: 20px; border-radius: 50%; background: #f87171;
+    animation: pulsar 1.2s ease-in-out infinite; }
+  @keyframes pulsar {
+    0%, 100% { transform: scale(1);   opacity: 1; }
+    50%      { transform: scale(1.5); opacity: .4; }
+  }
+</style>
+</head>
+<body>
+  <div class="spinner"></div>
+  <div class="esqueleto">
+    <div class="img"></div>
+    <div></div>
+    <div style="width: 60%"></div>
+  </div>
+  <div class="bolinha"></div>
+</body>
+</html>

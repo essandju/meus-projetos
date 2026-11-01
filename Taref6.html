@@ -1,0 +1,37 @@
+html
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página de blog</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; margin: 0; background: #f3f4f6; }
+  .pagina { display: grid; gap: 16px; padding: 16px; max-width: 1000px; margin: auto;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+      "header  header"
+      "article aside"
+      "footer  footer"; }
+  header  { grid-area: header;  background: #c7d2fe; }
+  article { grid-area: article; background: #fff; }
+  aside   { grid-area: aside;   background: #fde68a; }
+  footer  { grid-area: footer;  background: #d1d5db; }
+  header, article, aside, footer { padding: 16px; border-radius: 8px; }
+
+  @media (max-width: 600px) {
+    .pagina { grid-template-columns: 1fr;
+      grid-template-areas: "header" "article" "aside" "footer"; }
+  }
+</style>
+</head>
+<body>
+  <div class="pagina">
+    <header>header</header>
+    <article>article</article>
+    <aside>aside</aside>
+    <footer>footer</footer>
+  </div>
+</body>
+</html>

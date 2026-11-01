@@ -1,0 +1,31 @@
+html
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cartão com degradês</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; margin: 0; background: #0b1230;
+    display: grid; place-items: center; min-height: 100vh; }
+  .cartao { padding: 32px; border-radius: 20px; color: #aab;
+    background: linear-gradient(135deg, #1e2a5a, #0b1230);
+    box-shadow: 0 4px 12px rgba(0,0,0,.4), 0 16px 40px rgba(0,0,0,.35); }
+  h1 { margin: 0 0 8px;
+    background: linear-gradient(90deg, #a3e635, #f87171);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent; -webkit-text-fill-color: transparent; }
+  button { padding: 12px 24px; border: 0; border-radius: 99px; font-weight: 700; cursor: pointer;
+    background: radial-gradient(circle at 30% 30%, #a3e635, #f87171);
+    box-shadow: 0 4px 10px rgba(248,113,113,.4), 0 10px 30px rgba(248,113,113,.3); }
+</style>
+</head>
+<body>
+  <div class="cartao">
+    <h1>Degradês</h1>
+    <p>linear, radial e texto com cor em gradiente.</p>
+    <button>Começar</button>
+  </div>
+</body>
+</html>

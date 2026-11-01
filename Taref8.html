@@ -1,0 +1,27 @@
+html
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página com cabeçalho fixo</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; margin: 0; padding-top: 60px; background: #f3f4f6; }
+  header { position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 10;
+    background: #111827; color: #fff; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 24px; }
+  main { padding: 24px; max-width: 700px; margin: auto; }
+  .topo { position: fixed; right: 24px; bottom: 24px; width: 48px; height: 48px;
+    border-radius: 50%; border: 0; background: #6366f1; color: #fff;
+    font-size: 1.3rem; cursor: pointer; }
+</style>
+</head>
+<body>
+  <header><span>Menu fixo</span><span>☰</span></header>
+  <main>
+    <p style="height: 2000px">Desce a página para ver o menu e o botão fixos.</p>
+  </main>
+  <button class="topo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+</body>
+</html>

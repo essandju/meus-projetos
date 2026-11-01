@@ -1,0 +1,30 @@
+html
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; margin: 0; padding: 24px; background: #f3f4f6; }
+  .catalogo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px; max-width: 1000px; margin: auto; }
+  .produto { background: #fff; border-radius: 12px; padding: 16px; }
+  .produto h3 { margin: 0 0 4px; }
+  .produto p { margin: 0; color: #555; }
+</style>
+</head>
+<body>
+  <div class="catalogo">
+    <div class="produto"><h3>Produto 1</h3><p>12 000 Kz</p></div>
+    <div class="produto"><h3>Produto 2</h3><p>12 000 Kz</p></div>
+    <div class="produto"><h3>Produto 3</h3><p>12 000 Kz</p></div>
+    <div class="produto"><h3>Produto 4</h3><p>12 000 Kz</p></div>
+    <div class="produto"><h3>Produto 5</h3><p>12 000 Kz</p></div>
+    <div class="produto"><h3>Produto 6</h3><p>12 000 Kz</p></div>
+    <div class="produto"><h3>Produto 7</h3><p>12 000 Kz</p></div>
+    <div class="produto"><h3>Produto 8</h3><p>12 000 Kz</p></div>
+  </div>
+</body>
+</html>
